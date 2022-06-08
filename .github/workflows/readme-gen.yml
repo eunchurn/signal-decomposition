@@ -25,6 +25,6 @@ jobs:
           mv main.md README.md
       - uses: EndBug/add-and-commit@v9
         with:
-          add: "README.md"
+          add: "."
           author_name: Eunchurn Park
           author_email: eunchurn.park@gmail.com
