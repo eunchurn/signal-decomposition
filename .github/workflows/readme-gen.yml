@@ -12,14 +12,11 @@ jobs:
         python-version: [3.9]
     steps:
       - uses: actions/checkout@v2
-      - name: Set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v2
+      - uses: actions/setup-python@v3
         with:
-          python-version: ${{ matrix.python-version }}
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+          python-version: "3.9"
+          cache: "pip"
+      - run: pip install -r requirements.txt
       - name: Markdown Generation
         run: |
           jupyter nbconvert --execute --to markdown main.ipynb
