@@ -100,7 +100,9 @@ for x in range(0, nk - 1):
     Pfft = np.hstack((Pfft, ft[:, np.newaxis]))
 ```
 
-### Ploting all decomposed signals
+- `P`가 분리된 신호들의 집합(Matrix) 이다.
+
+### Plotting all decomposed signals
 
 - Time domain of all decomposed signals
 
@@ -116,7 +118,7 @@ plt.show()
 
 
     
-![png](main_files/main_11_0.png)
+![png](main_files/main_12_0.png)
     
 
 
@@ -138,7 +140,7 @@ plt.show()
 
 
     
-![png](main_files/main_13_0.png)
+![png](main_files/main_14_0.png)
     
 
 
@@ -169,13 +171,13 @@ fig4.savefig("./figures/spectrogram.pdf")
 plt.show()
 ```
 
-    /tmp/ipykernel_1634/1271570416.py:3: RuntimeWarning: divide by zero encountered in log10
+    /tmp/ipykernel_1630/1271570416.py:3: RuntimeWarning: divide by zero encountered in log10
       np.log10(np.abs(Pfft[: int(NFFT / 2 - 1), :]).transpose()),
 
 
 
     
-![png](main_files/main_15_1.png)
+![png](main_files/main_16_1.png)
     
 
 
@@ -205,12 +207,12 @@ fig5.savefig("./figures/spectrogramZoomed.pdf")
 plt.show()
 ```
 
-    /tmp/ipykernel_1634/3813461710.py:3: RuntimeWarning: divide by zero encountered in log10
+    /tmp/ipykernel_1630/3813461710.py:3: RuntimeWarning: divide by zero encountered in log10
       np.log10(np.abs(Pfft[: int(NFFT / 2 - 1), :]).transpose()),
 
 
 
     
-![png](main_files/main_17_1.png)
+![png](main_files/main_18_1.png)
     
 
