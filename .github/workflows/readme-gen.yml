@@ -1,0 +1,33 @@
+name: README Generate
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: [3.9]
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+      - name: Markdown Generation
+        run: |
+          jupyter nbconvert --execute --to markdown main.ipynb
+      - name: Rename MD file
+        run: |
+          mv main.md README.md
+      - uses: EndBug/add-and-commit@v9
+        with:
+          add: "README.md"
+          author_name: Eunchurn Park
+          author_email: eunchurn.park@gmail.com
